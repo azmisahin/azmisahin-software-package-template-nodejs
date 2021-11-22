@@ -1,0 +1,72 @@
+{
+  "name": "@azmisahin/software-package-template",
+  "version": "0.0.1",
+  "description": "Package repository standardization template for nodejs project types.",
+  "keywords": [
+    "library",
+    "package",
+    "module",
+    "architecture",
+    "standardization",
+    "template"
+  ],
+  "author": "Azmi ŞAHİN",
+  "license": "MIT",
+  "main": "src",
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/azmisahin/azmisahin-software-package-template-nodejs.git"
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "scripts": {
+    "lint:config": "eslint docs --fix --no-error-on-unmatched-pattern",
+    "lint:src": "eslint src --fix --no-error-on-unmatched-pattern",
+    "lint:test-unit": "eslint tests/unit --fix --no-error-on-unmatched-pattern",
+    "lint": "npm run lint:config && npm run lint:src && npm run lint:test-unit",
+    "prettier": "prettier --write docs src tests *.js *.json",
+    "test:unit": "jest --passWithNoTests --detectOpenHandles",
+    "test:text": "jest --passWithNoTests --detectOpenHandles --no-color 2>reports/test/test.txt",
+    "test": "cross-env NODE_ENV=test npm run test:unit && npm run test:text",
+    "build": "npm run prettier && npm run lint && npm run test && npm run coverage && npm run document",
+    "coverage:html": "jest --collectCoverage --passWithNoTests --detectOpenHandles --coverageReporters=html --coverageDirectory=reports/coverage",
+    "coverage:json": "jest --collectCoverage --passWithNoTests --detectOpenHandles --coverageReporters=json --coverageDirectory=reports/test",
+    "coverage:text": "jest --collectCoverage --passWithNoTests --detectOpenHandles --coverageReporters=text --coverageDirectory=reports/test > reports/test/coverage.txt",
+    "coverage:xml": "jest --collectCoverage --passWithNoTests --detectOpenHandles --coverageReporters=cobertura --coverageDirectory=reports/test",
+    "coverage": "npm run coverage:html & npm run coverage:json & npm run coverage:text & npm run coverage:xml",
+    "document": "jsdoc src -d reports/document -t node_modules/better-docs",
+    "start": "func start"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commitmsg": "commit stage",
+      "pre-push": "npm version patch"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run build",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "@azmisahin/software-package-template-model": "file:src/model",
+    "cross-env": "^7.0.3",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2"
+  },
+  "devDependencies": {
+    "better-docs": "^2.3.2",
+    "eslint": "^8.3.0",
+    "eslint-plugin-security": "^1.4.0",
+    "jest": "^27.3.1",
+    "jest-junit": "^13.0.0",
+    "jsdoc": "^3.6.7",
+    "prettier": "^2.4.1"
+  }
+}

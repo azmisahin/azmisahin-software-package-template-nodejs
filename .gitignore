@@ -1,4 +1,4 @@
-### repository-template : Indicates files that are not intentionally traced to be ignored  ###
+### package-template : Indicates files that are not intentionally traced to be ignored  ###
 
 # Logs
 logs

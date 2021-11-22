@@ -1,0 +1,6 @@
+{
+  "name": "@azmisahin/software-package-template-model",
+  "version": "0.0.1",
+  "description": "internal shared model",
+  "main": "index.js"
+}
