@@ -30,9 +30,12 @@
 |   +-- unit					    '	Unit test.
 |   +-- integration                 '	Integration testing.
 +-- .editor.config                  '	Developers will use these code indents and styles in their IDEs.
-+-- .env                            '	each env. the file holds or separates the development environment definitions.
-+-- docker-compose.yml              '	each .yml file holds or separates runtime definitions.
-+-- dockerfile                      '	each docker file prepares the runtime launcher image.
++-- .env                            '	Each env. the file holds or separates the development environment definitions.
++-- docker-compose.yml              '	Each .yml file holds or separates runtime definitions.
++-- dockerfile                      '	Each docker file prepares the runtime launcher image.
++-- .devcontainer                   '	Docker container as development environment.
+|   +-- devcontainer.json           '	Development container configuration file
+|   +-- Dockerfile                  '	You can use any image, Dockerfile
 
 ```
 
