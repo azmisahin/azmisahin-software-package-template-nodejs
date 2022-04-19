@@ -21,7 +21,7 @@
     "url": "https://github.com/azmisahin/azmisahin-software-package-template-nodejs.git"
   },
   "engines": {
-    "node": ">=12"
+    "node": ">=14"
   },
   "scripts": {
     "lint:config": "eslint docs --fix --no-error-on-unmatched-pattern",
@@ -38,8 +38,7 @@
     "coverage:text": "jest --collectCoverage --passWithNoTests --detectOpenHandles --coverageReporters=text --coverageDirectory=reports/test > reports/test/coverage.txt",
     "coverage:xml": "jest --collectCoverage --passWithNoTests --detectOpenHandles --coverageReporters=cobertura --coverageDirectory=reports/test",
     "coverage": "npm run coverage:html & npm run coverage:json & npm run coverage:text & npm run coverage:xml",
-    "document": "jsdoc src -d reports/document -t node_modules/better-docs",
-    "start": "func start"
+    "document": "jsdoc src -d reports/document -t node_modules/better-docs"
   },
   "husky": {
     "hooks": {
@@ -58,15 +57,15 @@
     "@azmisahin/software-package-template-model": "file:src/model",
     "cross-env": "^7.0.3",
     "husky": "^7.0.4",
-    "lint-staged": "^12.1.2"
+    "lint-staged": "^12.3.8"
   },
   "devDependencies": {
-    "better-docs": "^2.3.2",
-    "eslint": "^8.3.0",
-    "eslint-plugin-security": "^1.4.0",
-    "jest": "^27.3.1",
-    "jest-junit": "^13.0.0",
-    "jsdoc": "^3.6.7",
-    "prettier": "^2.4.1"
+    "better-docs": "^2.7.2",
+    "eslint": "^8.13.0",
+    "eslint-plugin-security": "^1.5.0",
+    "jest": "^27.5.1",
+    "jest-junit": "^13.1.0",
+    "jsdoc": "^3.6.10",
+    "prettier": "^2.6.2"
   }
 }
